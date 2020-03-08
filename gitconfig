@@ -1,0 +1,16 @@
+[alias]
+	s = status
+
+	# Pop your last commit out of the history! No change lost, just unindexed
+	pop = reset HEAD^
+	# A more concise and readable git log
+	ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]\\%Cred%d" --decorate
+
+[core]
+	excludesfile = ~/.gitignore
+
+[user]
+	name = Niklas Grießer
+	email = niklas@griesser.me
+[credential]
+	helper = osxkeychain
