@@ -11,7 +11,7 @@ ZSH_THEME="avit"
 plugins=(
   ansible
   git
-  osx
+  macos
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
