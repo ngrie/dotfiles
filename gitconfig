@@ -1,10 +1,30 @@
 [alias]
-	s = status
+	alias = config --get-regexp ^alias\\.
+
+	s = status -sb
+	b = branch
+	co = checkout
+	sw = switch
+	pushf = push --force-with-lease
+	smain = !git switch main && git pull
+	smaster = !git switch master && git pull
+
+	graph = log --graph --all --decorate --stat --date=iso
+	recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+	upstream = log --oneline --no-merges HEAD..@{upstream}
+	delete-local-branches-already-merged-in-remote = !git branch --merged | egrep -i -v '(main|master|develop|dev)' | xargs -r git branch -d
+	delete-local-branches-already-merged-in-remote-dry-run = !git branch --merged | egrep -i -v '(main|master|develop|dev)'
+	delete-stale-remote-tracking-branches-from-local = remote prune origin
+	delete-stale-remote-tracking-branches-from-local-dry-run = remote prune origin --dry-run
 
 	# Pop your last commit out of the history! No change lost, just unindexed
 	pop = reset HEAD^
 	# A more concise and readable git log
 	ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]\\%Cred%d" --decorate
+	# Info about last commit
+	last = log -1 HEAD --stat
+	# Reset your current branch to the last commit, deleting any uncommitted changes and removing all untracked files and directories
+	gtfo = !git reset --hard && git clean -fd
 
 [core]
 	excludesfile = ~/.gitignore
