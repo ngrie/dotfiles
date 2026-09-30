@@ -21,5 +21,3 @@ source $ZSH/oh-my-zsh.sh
 # enable alt + arrow keys for navigation
 bindkey '\e\e[C' forward-word
 bindkey '\e\e[D' backward-word
-
-source ~/.iterm2_shell_integration.zsh
